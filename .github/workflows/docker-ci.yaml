@@ -7,9 +7,7 @@ on: [push]
 jobs:
 
   hello-world-job:
-
     runs-on: ubuntu-latest
-
     steps:
 
        - name: Clone the code
@@ -44,12 +42,12 @@ jobs:
     steps:
        - name: Clone the code
          uses: actions/checkout@v6  
- 
+  
        - name: Start minikube
          uses: medyagh/setup-minikube@latest
        - name: Try the cluster!
          run: kubectl get pods -A
- 
+  
        - name: Create Deployment and Service
          run: |
             kubectl apply -f k8s/deploymentfile.yaml
@@ -59,4 +57,4 @@ jobs:
          run: |
             kubectl get deployments
             kubectl get service
- 
+  
