@@ -52,7 +52,8 @@ jobs:
          run: |
             kubectl apply -f k8s/deploymentfile.yaml
             kubectl apply -f k8s/servicefile.yaml
-            kubectl wait --for=condition=ready pod -l app=hello-world-python
+            kubectl wait --for=condition=ready pod -l app=helloworld --timeout=60s
+
        - name: View Deployment and Service
          run: |
             kubectl get deployments
